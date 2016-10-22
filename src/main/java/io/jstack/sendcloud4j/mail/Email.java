@@ -18,7 +18,7 @@ import java.util.Map;
 public abstract class Email<E extends Email<E>> {
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
-
+    protected boolean useAddressList = false;
     /**
      * 普通发送邮件
      *
@@ -191,6 +191,11 @@ public abstract class Email<E extends Email<E>> {
     public E attachment(File attachment, String name) {
         addBinaryAttachment(attachment, name);
         return getThis();
+    }
+
+    public E useAddressList() {
+        useAddressList = true;
+        return addParameter("useAddressList", String.valueOf(useAddressList));
     }
 
     /**

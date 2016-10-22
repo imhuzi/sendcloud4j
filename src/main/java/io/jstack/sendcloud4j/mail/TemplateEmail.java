@@ -27,11 +27,6 @@ public class TemplateEmail extends Email<TemplateEmail> {
         return getThis();
     }
 
-    public TemplateEmail useAddressList() {
-        useAddressList = true;
-        return addParameter("useAddressList", String.valueOf(useAddressList));
-    }
-
     @Override
     protected TemplateEmail getThis() {
         return this;
